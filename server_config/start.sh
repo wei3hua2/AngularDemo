@@ -1,0 +1,1 @@
+sudo nginx -c ~/Projects/AngularDemo/server_config/nginx/nginx.conf -p ~/Projects/AngularDemo/server_config
