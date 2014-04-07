@@ -16,9 +16,10 @@ angular.module('angularDemoApp')
         };
         //client, adviser, manager, branch, higher - 11111
 
-        var menu = [{name:'Client',category:cat['client'],role:3},
-        {name:'Note',category:cat['client'],role:1},
-        {name:'Custom',category:cat['client'],role:13}];
+        var menu =
+            [{name:'Client',category:cat['client'],role:3},
+             {name:'Note',category:cat['client'],role:1},
+             {name:'Custom',category:cat['client'],role:13}];
 
 
         return {

@@ -5,8 +5,14 @@ a.link{
 .show-border {
     width:100%;
 }
-th,td {
-    border-collapse: collapse !important;
-    border:1px solid #ddd !important;
+
+th {
     text-align: center !important;
 }
+td {
+    border-collapse: collapse !important;
+    border:1px solid #999 !important;
+    text-align: center !important;
+    font-size:0.5em !important;
+}
+

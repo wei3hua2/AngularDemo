@@ -46,10 +46,6 @@
     </p>
 </section>
 
-<section id="scope">
-    <h3>Scope of Presentation</h3>
-</section>
-
 <section id="outline">
     <h2>Presentation Outline</h2>
     <ol>
@@ -213,32 +209,334 @@
 
 </section>
 
-<section>
+<section id="jsarchitecture">
     <section>
-        <h2>Javascript Architectural Framework</h2>
+        <h2>Javascript Architectural Framework</h2><br/>
+        <p>With the advance of SPA, complexity has shift from server to client side. Thus, there is a need to introduce a web architectural framework (etc. STRUTS, JSF) on the client side (etc. AngularJS, Backbone, EmberJS).</p><br/>
+        <p>Client-side Javascript implementation are frequently stuck with spaghetti code. Fortunately there are modern JavaScript frameworks that can assist with bringing structure and organization to our projects, improving how easily maintainable they are in the long-run.</p>
+    </section>
+
+    <section>
+        <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th>Angular.js</th>
+                <th>Backbone.js</th>
+                <th>Ember.js</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>No. of stars (github)</td>
+                    <td>22,438</td>
+                    <td>17,546</td>
+                    <td>9,797</td>
+                </tr>
+                <tr>
+                    <td>No. of forks (github)</td>
+                    <td>7,189</td>
+                    <td>3,857</td>
+                    <td>2,113</td>
+                </tr>
+                <tr>
+                    <td>No. of questions tagged (stackoverflow)</td>
+                    <td>31,493</td>
+                    <td>14,248</td>
+                    <td>8,876</td>
+                </tr>
+                <tr>
+                    <td>Production Readiness</td>
+                    <td>Supported by Google. Used by Google, HBO, Nike, msnbc, etc.</td>
+                    <td>Use by Hulu, US Today, Foursquare, Bitbucket, Khan Academy etc.</td>
+                    <td>Used by Groupon, Square, Tilde, Yahoo! etc</td>
+                </tr>
+                <tr>
+                    <td>Tools support</td>
+                    <td>Chrome provides development plugin for AngularJS debugging, Webstorm 8 provides advanced support.</td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <img src="./images/framework_trend.png"/>
+    </section>
+
+    <section>
+        <h3>TODOMVC Comparisons</h3>
+        <small>Sum Logical SLOC - <a href="http://blog.coderstats.net/todomvc-complexity/">http://blog.coderstats.net/</a></small>
+        <img src="http://blog.coderstats.net/img/complexity/Sum-Logical-SLOC.png"/>
+
+    </section>
+
+    <section>
+        <h3>TODOMVC Comparisons</h3>
+        <small>Mean Cyclomatic Complexity - <a href="http://blog.coderstats.net/todomvc-complexity/">http://blog.coderstats.net/</a></small>
+        <img src="http://blog.coderstats.net/img/complexity/Mean-Cyclomatic-Complexity.png"/>
+
+    </section>
+
+    <section>
+        <h3>TODOMVC Comparisons</h3>
+        <small>Mean Maintainability Index - <a href="http://blog.coderstats.net/todomvc-complexity/">http://blog.coderstats.net/</a></small>
+        <img src="http://blog.coderstats.net/img/complexity/Mean-Maintainability-Index.png"/>
+    </section>
+</section>
+
+<section id="angularjsarchitecture">
+
+    <section>
+        <h2>Angular JS Architecture</h2>
+        <small>Philosophy & Principle</small>
+
+        <ul>
+            <li>Declarative code is better than imperative when it comes to building UIs and wiring software components together, while imperative code is excellent for expressing business logic.</li><br/>
+            <li>Decouple DOM manipulation from application logic. This improves the testability of the code.</li><br/>
+            <li>Regard application testing as equal in importance to application writing.</li><br/>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Angular JS Architecture</h2>
+        <small>Philosophy & Principle</small>
+
+        <ul>
+            <li>Follows the MVC pattern of software engineering and encourages loose coupling between presentation, data, and logic components.</li><br/>
+            <li>Using dependency injection, testability improves & mock data is easily injected.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Angular JS Architecture</h2>
+        <small>remove boilerplates by freeing us from..</small>
+
+        <ul>
+            <li>Registering callbacks: <small>Registering callbacks clutters your code, making it hard to see the forest for the trees. Removing common boilerplate code such as callbacks is a good thing. It vastly reduces the amount of JavaScript coding you have to do, and it makes it easier to see what your application does.</small></li><br/>
+            <li>Manipulating HTML DOM programmatically: <small>Manipulating HTML DOM is a cornerstone of AJAX applications, but it's cumbersome and error-prone. By declaratively describing how the UI should change as your application state changes, you are freed from low-level DOM manipulation tasks. Most applications written with Angular never have to programmatically manipulate the DOM, although you can if you want to.</small></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Angular JS Architecture</h2>
+        <small>remove boilerplates by freeing us from..</small>
+
+        <ul>
+            <li>Marshaling data to and from the UI: <small>CRUD operations make up the majority of AJAX applications' tasks. The flow of marshaling data from the server to an internal object to an HTML form, allowing users to modify the form, validating the form, displaying validation errors, returning to an internal model, and then back to the server, creates a lot of boilerplate code. Angular eliminates almost all of this boilerplate, leaving code that describes the overall flow of the application rather than all of the implementation details.</small></li><br/>
+            <li>Writing tons of initialization code just to get started: <small>Typically you need to write a lot of plumbing just to get a basic "Hello World" AJAX app working. With Angular you can bootstrap your app easily using services, which are auto-injected into your application in a Guice-like dependency-injection style. This allows you to get started developing features quickly. As a bonus, you get full control over the initialization process in automated tests.</small></li>
+        </ul>
+    </section>
+
+    <!-- MVC -->
+    <section>
+        <h3>Model-View-Controller</h3>
+        <br/>
+        <p>
+            <img src="http://docs.angularjs.org/img/guide/concepts-databinding1.png"/>
+            <small style="width:40%">
+                <span>
+                    Angular has a flexible model definition.
+                </span>
+                <br/><br/>
+                <span>
+                    Each view is defined by a scope, where model attributes are passed.
+                </span>
+            </small>
+        </p>
+        <p>
+            <img src="http://docs.angularjs.org/img/guide/concepts-databinding2.png"/>
+            <small style="width:40%">
+                <span>
+                    Every view has a tight one-to-one relationship with a controller.
+                </span>
+                <br/><br/>
+                <span>
+                    Model is automatically updated when there is an update on either controller or view, known as <strong>two-way binding</strong>.
+                </span>
+                <br/><br/>
+                <span>
+                    This free up developer from having to manually updating the view with the model attributes.
+                </span>
+            </small>
+        </p>
+    </section>
+
+    <!-- Templating System -->
+    <section>
+        <h3>Templating System</h3>
+
+        <pre>Angular template
+            <code data-trim contenteditable>
+<ul class="phones">
+    <li ng-repeat="phone in phones">
+        {{phone.name}}
+        <p>{{phone.snippet}}</p>
+        <p>Cost : {{phone.snippet | formatCurrency}}</p>
+    </li>
+</ul>
+        </code></pre>
+
+        <pre>Handlebar template
+            <code data-trim contenteditable>
+<ul class="phones">
+    {{#each phones}}
+    <li>
+        {{name}}
+        <p>{{snippet}}</p>
+        <p>Cost : {{FormatCurrency snippet}}</p>
+    </li>
+    {{/each}}
+</ul>
+        </code></pre>
+    </section>
+
+    <section>
+        <h3>Templating System</h3><br/>
+        <ul>
+            <li>Angular template is a valid HTML. This makes it easier to test on an editor.</li><br/>
+            <li>Handlebar is not a valid html as it includes control flow statement in a declarative template.<pre>{{#each phones}}</pre></li><br/>
+            <li>Angular template is purely declarative.</li>
+        </ul>
+    </section>
+
+    <!-- Dependency Injection -->
+    <section>
+        <h3>Dependency Injection</h3><br/>
+        <ul>
+            <li>The advantage of DI comes from the declaration of dependency only when it is needed.</li><br/>
+            <li>An injector (container) will then take care of instantiation of the dependencies.</li><br/>
+            <li>Thus, the responsibility of locating the dependency is shifted from the depender to the injector container. Dynamically resolve the dependencies during runtime.</li><br/>
+            <li>Making testing of the component easier.</li>
+        </ul>
+    </section>
+
+    <section>
+        <pre>Factory pattern to generate singleton object
+            <code data-trim contenteditable>
+myModule.factory('greeter', function($window) {
+    return {
+        greet: function(text) {
+            $window.alert(text);
+        }
+    };
+});
+            </code></pre>
+        <pre>Declaring greeter on another module
+            <code data-trim contenteditable>
+myModule.controller('GreetingCtrl',function($scope, greeter) {
+    $scope.greeting = function () {
+        greeter.greet('Hello World');
+    }
+});
+            </code></pre>
+    </section>
+
+    <!-- Module: component-based architecture -->
+    <section>
+        <h3>Module: component-based architecture</h3>
+        <ul>
+            <li>Angular JS is a component-based architecture.</li><br/>
+            <li>There is no main method that instantiates and wires together the different parts of the application.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Module: component-based architecture</h3><br/>
+        <p style="text-align: left;text-decoration: underline">The advantage of this approach includes:</p><br/>
+        <ul>
+            <li>You can package code as reusable modules.</li><br/>
+            <li>The modules can be loaded in any order (or even in parallel) because modules delay execution.</li><br/>
+            <li>Unit tests only have to load relevant modules, which keeps them fast.</li>
+        </ul>
+    </section>
+
+    <section>
+        <pre>The module 'xmpl' includes 3 other modules.
+            <code data-trim contenteditable>
+angular.module('xmpl.service', []).
+    value('greeter', {
+        salutation: 'Hello',
+        localize: function(localization) {
+            this.salutation = localization.salutation;
+        },
+    greet: function(name) { return this.salutation + ' ' + name + '!'; }
+    }).value('user', {
+            load: function(name) {
+            this.name = name;
+       }
+    });
+
+angular.module('xmpl.directive', []);
+angular.module('xmpl.filter', []);
+
+angular.module('xmpl', ['xmpl.service', 'xmpl.directive', 'xmpl.filter']);
+
+        </code></pre>
+
+    </section>
+
+    <!-- Testability -->
+    <section>
+        <h3>Testability</h3><br/>
+        <ul>
+            <li>Dynamic language like Javascript requires more testing effort as it does not provide compiled time type checking provided by static languages.</li><br/>
+            <li>Thus, Angular JS is built with ease of testing in mind.</li><br/>
+            <li>The AngularJS team created a feature-rich test runner call Karma.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Testability</h3>
+        <small>Unit Testing</small>
+        <p>Coming Soon...</p>
+    </section>
+
+    <section>
+        <h3>Testability</h3>
+        <small>E2E Testing</small>
+        <p>Coming Soon...</p>
+    </section>
+
+</section>
+
+
+
+
+<section data-background="#EEEEA0">
+    <section>
+        <h2>Demo</h2><br/>
         <ol>
-            <li>GUI Architecture</li>
-            <li>Web 1.0 framework</li>
-            <li>Architecture for SPA</li>
+            <li>SPA & Thin Stateless Server Architecture</li><br/>
+            <li>Angular JS Architecture</li><br/>
+            <li>and below...</li>
         </ol>
     </section>
     <section>
+        <h3>SPA & Thin Stateless Server Architecture</h3>
+        <img src="./images/Infra.png"/>
+    </section>
+
+    <section>
+        <h3>Server Infrastructure</h3><br/>
         <ul>
-            <li></li>
+            <li>This demo setup is the mock implementation of a thin stateless server architecture.</li><br/>
+            <li>There are 3 types of servers: Proxy Server, Static File Server, and a Stateless Restful server.</li>
         </ul>
     </section>
-</section>
 
-<section>
-    <h2>Angular JS Architecture</h2>
-    <p>
-        Try it out! You can swipe through the slides and pinch your way to the overview.
-    </p>
-</section>
+    <section>
+        <h3>Angular JS Architecture</h3>
+    </section>
 
-<section>
-    <h2>Demo</h2>
-    <p>Coming soon...</p>
+    <section>
+        <h3>and Below...</h3><br/>
+        <ul>
+            <li>Responsive Web Design (Twitter Bootstrap)</li><br/>
+            <li>Mobile native adapter (Cordova)</li><br/>
+            <li>Progressive Enhancement (Modernizr)</li>
+        </ul>
+    </section>
 </section>
 
 </div>

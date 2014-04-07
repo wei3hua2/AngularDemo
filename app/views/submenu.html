@@ -6,11 +6,15 @@
         </a>
         <ul class="dropdown-menu">
             <li ng-class="{dropdown-submenu: !!item.subitems}" ng-repeat="item in tab.items">
-                <a href="#">{{item.name}}</a>
-                <ul class="dropdown-menu">
-                    <li ng-repeat="subitem in item.subitems">{{subitem.name}}</li>
-                </ul>
-            </li>
+                <li ng-class="{dropdown-submenu: !!item.subitems}" ng-repeat="item in tab.items">
+                    <a href="#">{{item.name}}</a>
+                    <ul class="dropdown-menu">
+                        <li>33</li>
+                        <li>21</li>
+                        <!--<li ng-repeat="subitem in item.subitems">{{subitem.name}}</li>-->
+                    </ul>
+                </li>
+            </div>
         </ul>
     </li>
 </ul>
