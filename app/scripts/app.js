@@ -7,7 +7,12 @@ angular.module('angularDemoApp', ['ngRoute'])
             redirectTo:'/signin'
       })
       .when('/main', {
-        templateUrl: 'views/main.html',
+        redirectTo:'/main/main'
+      })
+      .when('/main/:page', {
+        templateUrl: function(param){
+            return 'views/component/'+param.page+'.html';
+        },
         controller: 'MainCtrl'
       })
       .when('/signin', {
@@ -30,13 +35,13 @@ angular.module('angularDemoApp', ['ngRoute'])
                 return config;
             },
             response: function (response) {
-                console.log('response : ');
-                console.log(response);
-                console.log(response.status);
-                if (response.status === 401) {
+                return response || $q.when(response);
+            },
+            responseError: function (rejection) {
+                if (rejection.status === 401) {
                     $location.path('/signin');
                 }
-                return response || $q.when(response);
+                return $q.reject(rejection);
             }
         };
   });

@@ -19,9 +19,14 @@
   <body ng-app="angularDemoApp">
 
     <!-- Add your site or application content here -->
+
+    <div ng-include="" src=" 'views/menu.html' " ng-controller="MainMenuCtrl"></div>
+    <div ng-include="" src=" 'views/submenu.html' " ng-controller="SubMenuCtrl"></div>
+
     <div class="container" ng-view=""></div>
 
     <script src="bower_components/jquery/jquery.js"></script>
+    <script src="scripts/lib/bootstrap.min.js"></script>
 
     <script src="scripts/lib/angular.min.js"></script>
     <script src="scripts/lib/angular-route.min.js"></script>

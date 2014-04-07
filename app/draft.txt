@@ -1,0 +1,5 @@
+Why Angular
+
+* problem definitions - SPA
+* statistics - github like count
+* characteristics

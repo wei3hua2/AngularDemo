@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Web Application - Angular JS focus</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="bower_components/reveal.js/css/theme/serif.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css">
+
+    <link rel="stylesheet" href="styles/presentation.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section id="introduction">
+    <h1>Angular <img src="http://cdn3.icicletech.com/media/t_logo-angularjs-transparent.png" style="border:0px;"> JS</h1>
+    <h6>SPA Framework for Web Frontier</h6>
+    <p>
+        <small>Created by <a href="mailto:email@jameschong.me?Subject=Presentation%20On%20AngularJS">James Chong</a></small>
+    </p>
+</section>
+
+<section id="scope">
+    <h3>Scope of Presentation</h3>
+</section>
+
+<section id="outline">
+    <h2>Presentation Outline</h2>
+    <ol>
+        <li><a href="#/3">Evolution of Web Application</a></li>
+        <li><a href="#/4">Web Architecture In Perspective</a></li>
+        <li><a href="#/5">Javascript Architectural Framework </a></li>
+        <li><a href="#/6">Angular JS Architecture</a></li>
+        <li><a href="#/7">Demo Application: Scalable Architecture with Angular JS</a></li>
+    </ol>
+</section>
+
+<!-- Example of nested vertical slides -->
+<section id="webevolution">
+    <section>
+        <h2>Evolution of the Web</h2>
+        <ol>
+            <li><a href="#/3/1">Web & The Rest of Us</a></li>
+            <li><a href="#/3/3">Web Applications Framework</a></li>
+        </ol>
+    </section>
+    <section>
+        <h2>Web & The Rest of Us <small style="vertical-align:text-bottom;font-size:0.4em;"></small></h2>
+        <br/>
+        <ul>
+            <li>56% of people own a smart phone.
+                <a class="link" href="http://www.digitalbuzzblog.com/infographic-2013-mobile-growth-statistics/">link</a></li><br/>
+            <li>39% of the world 7.9 billion population are using the Internet.</li><br/>
+            <li>Facebook passes 1.23 billion monthly active users, 945 million mobile users, and 757 million daily users.
+                <a class="link" href="Facebook passes 1.23 billion monthly active users, 945 million mobile users, and 757 million daily users">link</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Web & The Rest of Us <small style="vertical-align:text-bottom;font-size:0.4em;"></small></h2>
+        <p>
+            <h6>" Software is eating the world " <small>Marc Andressen</small></h6>
+        </p>
+        <br/>
+        <ul>
+            <li>Software has become a force that intrude all aspect of our life and businesses.</li><br/>
+            <li>The world's largest bookseller, Amazon, is a software company.</li><br/>
+            <li>Largest video service by number of subscribers is a software company: Netflix.</li><br/>
+        </ul>
+    </section>
+
+    <section>
+        <ul>
+            <li>Leading real-world retailer, Wal-Mart, uses software to power its logistics and distribution capabilities, which it has used to crush its competition.</li><br/>
+            <li>FedEx, which is best thought of as a software network that happens to have trucks, planes and distribution hubs attached.</li><br/>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Web Applications Framework</h3><br/>
+        <ul>
+            <li>
+                As more consumptions & businesses shift online, the requirements for building a web application has increase as well.
+            </li><br/>
+            <li>
+                Thus, there is a need to apply software engineering principles and design patterns to organize code complexity.
+            </li>
+        </ul>
+    </section>
+    <section>
+        <h3>Web Applications Framework <small style="vertical-align:text-bottom;font-size:0.4em;">History</small></h3>
+    </section>
+</section>
+
+<section id="webarchitecture">
+    <section>
+        <h2>Web Architecture In Perspective</h2>
+        <ol>
+            <li><a href="">In the beginning, there were...</a></li>
+            <li>Thick Stateful vs Thin Stateless Server</li>
+            <li>Single Page Application</li>
+        </ol>
+    </section>
+
+    <section>
+        <h3>In the beginning, there were...</h3>
+    </section>
+
+    <section>
+        <h3><span style="text-decoration: underline">Stateful</span> vs Stateless Server</h3>
+        <ul>
+            <li>The server keeps the necessary state in memory of the client state of the page.</li><br/>
+            <li>When any request hits the server (usually user actions), the server sends the appropriate HTML and/or JavaScript with the concrete changes to bring the client to the new desired state. At the same time the state in server is updated.</li><br/>
+            <li>Most of the logic is executed in server and HTML is usually also rendered in server. In some ways the server simulates a web browser, receiving events and performing delta changes in server state which are automatically propagated to client.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3><span style="text-decoration: underline">Stateful</span> vs Stateless Server</h3>
+        <ul>
+            <li>This approach needs more server memory and server processing.</li><br/>
+            <li>Has a mix of concern with the presentation and business logic.</li><br/>
+            <li>The advantage is a simplified development model because: </li><br/>
+            <li>The application is usually fully coded in server.</li><br/>
+            <li>Data and UI state in server are shared in the same memory space with no need of custom client/server communication bridges.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Stateful vs <span style="text-decoration: underline">Stateless</span> Server</h3>
+        <ul>
+            <li>The client page sends the necessary data of the current state to the server usually through AJAX requests.</li><br/>
+            <li>The server with this data is able to reconstruct in some way the client state of the page part going to be modified and generate the necessary data or code.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Stateful vs <span style="text-decoration: underline">Stateless</span> Server</h3>
+        <ul>
+            <li>This approach is more easily scalable because there is no per client page data kept in server and therefore AJAX requests can be dispatched to different server nodes with no need of session data sharing or server affinity.</li><br/>
+            <li>Well adopted by REST architectural style. Clear separation of concern between business logic (server) and presentation (SPA).</li><br/>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Thick Stateful vs Thin Stateless Server</h3>
+        <table class="show-border">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Stateful</th>
+                <th>Stateless</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Ease of Scaling</td>
+                <td>Requires sequence of tests</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Testability</td>
+                <td>Requires sequence of tests</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h3>Single Page Application</h3><br/>
+        <ul>
+            <li>A web application with the goal of providing a more fluid user experience akin to a desktop application.</li><br/>
+            <li>All necessary code – HTML, JavaScript, and CSS – is either retrieved with a single page load, or the appropriate resources are dynamically loaded and added to the page as necessary.</li><br/>
+            <li>Typically rely on a stateless RESTFUL approach to communicate with the server.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Single Page Application</h3><br/>
+        <ul>
+            <li>Clear separation of concern encourages reuse for business logic (functional requirement). It also creates an abstraction layer for testing.</li><br/>
+            <li>Browser has become the new Virtual Machine. For mobile devices, browser engine is used as the mediator, cordova is used as an abstract layer to communicate with native feature if need to.</li><br/>
+            <li>A shared common language (Javascript) is used across different platforms and devices.</li>
+        </ul>
+    </section>
+
+</section>
+
+<section>
+    <section>
+        <h2>Javascript Architectural Framework</h2>
+        <ol>
+            <li>GUI Architecture</li>
+            <li>Web 1.0 framework</li>
+            <li>Architecture for SPA</li>
+        </ol>
+    </section>
+    <section>
+        <ul>
+            <li></li>
+        </ul>
+    </section>
+</section>
+
+<section>
+    <h2>Angular JS Architecture</h2>
+    <p>
+        Try it out! You can swipe through the slides and pinch your way to the overview.
+    </p>
+</section>
+
+<section>
+    <h2>Demo</h2>
+    <p>Coming soon...</p>
+</section>
+
+</div>
+
+</div>
+
+<script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+<script src="bower_components/reveal.js/js/reveal.min.js"></script>
+
+<script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'bower_components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'bower_components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+    });
+
+</script>
+
+</body>
+</html>

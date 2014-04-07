@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('angularDemoApp')
-  .controller('MainCtrl', ['$scope','$http',function ($scope, $http) {
-    $http.get('/api/user-info')
-        .success(function(data){
-            $scope.broadcast('permitted-roles',data.roles);
-        });
+  .controller('MainCtrl', ['$scope','$http','$routeParams',function ($scope, $http, $routeParams) {
+        console.log($routeParams);
+        $http.get('/api/user-info')
+            .success(function(data){
+                $scope.$broadcast('permitted-roles',data.roles);
+            });
   }])
     .controller('SigninCtrl', ['$scope','$rootScope','$http','$window','$location',function ($scope, $rootScope, $http, $window, $location) {
         $scope.user = {username:'jameschong',password:'jameschong'};
@@ -27,7 +28,7 @@ angular.module('angularDemoApp')
                 });
         }
     }])
-    .controller('MainMenuCtrl',['$scope','$http','$location', function ($scope, $http,$location) {
+    .controller('MainMenuCtrl',['$scope','$http','$location', function ($scope, $http, $location) {
         $scope.logout = function () {
             $http.get('/api/logout')
                 .success(function (data, status) {
@@ -38,15 +39,42 @@ angular.module('angularDemoApp')
                 });
         }
     }])
-    .controller('SubMainCtrl', ['$scope', function ($scope) {
-
+    .controller('xMainCtrl', ['$scope', function ($scope) {
+        console.log('xMainCtrl');
     }])
     .controller('SubMenuCtrl', ['$scope', function ($scope) {
+
+        $scope.menus = [
+            {name:"Home",
+                items:[{name:"home 1"},{name:"home 2"},{name:"home 3"}]
+            },
+            {name:"Profile",
+                items:[{name:"profile 1"},
+                    {name:"profile 2",
+                        subitems:[{name:"profile 21"},{name:"profile 22"}]
+                    },
+                    {name:"profile 3"}]},
+            {name:"Message",
+                items:[{name:"msg 1"},{name:"msg 2"},{name:"msg 3"}]}
+//            "Home":[
+//                "home item 1",
+//                "home item 2",
+//                ["home item 31","home item 32","home item 33"],
+//                "home item 4"
+//            ],
+//            "Profile":[
+//                "profile 1",
+//                "profile 2",
+//                "profile 3"
+//            ],
+//            "Message":[
+//                "msg 1",
+//                "msg 2"
+//            ]
+        ];
+
         $scope.$on('permitted-roles',function(data){
             console.log('permitted-roles');
             console.log(data);
         })
-    }])
-    .controller('SubMainComponentCtrl', ['$scope', function ($scope) {
-
     }]);
